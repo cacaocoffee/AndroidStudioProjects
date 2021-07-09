@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayAdapter<MainData> arrayList;
+    private ArrayList<MainData> arrayList;
     private MainAdapter mainAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        arrayList = new ArrayList<>();
 
+        mainAdapter = new MainAdapter(arrayList);
         recyclerView.setAdapter(mainAdapter);
 
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainData mainData = new MainData(R.drawable.ic_launcher_background,"명석2","코딩너무어렵다아");
+                MainData mainData = new MainData(R.mipmap.ic_launcher,"명석","리사클러뷰");
                 arrayList.add(mainData);
                 mainAdapter.notifyDataSetChanged();//새로고침 완료
             }

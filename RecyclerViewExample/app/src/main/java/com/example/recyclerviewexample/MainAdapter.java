@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
 
+
     private ArrayList<MainData> arrayList;
 
     public MainAdapter(ArrayList<MainData> arrayList) {
@@ -46,7 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             @Override
             public void onClick(View v) {
                 String curName = holder.tv_name.getText().toString();
-                Toast.makeText(v.getContext(),curName,Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), curName, Toast.LENGTH_SHORT).show();
             }
         });
 
