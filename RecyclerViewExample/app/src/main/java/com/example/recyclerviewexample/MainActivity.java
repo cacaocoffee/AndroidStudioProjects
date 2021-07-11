@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private MainAdapter mainAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
-
+    private EditText et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        et=(EditText) findViewById(R.id.et_inputdata);
         recyclerView = (RecyclerView)findViewById(R.id.rv);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-
         arrayList = new ArrayList<>();
 
         mainAdapter = new MainAdapter(arrayList);
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainData mainData = new MainData(R.mipmap.ic_launcher,"명석","리사클러뷰");
+                MainData mainData = new MainData(R.drawable.ic_action_name,"오늘의 할일","리사클러뷰");
+                mainData.setTv_content(et.getText().toString());
                 arrayList.add(mainData);
                 mainAdapter.notifyDataSetChanged();//새로고침 완료
             }
